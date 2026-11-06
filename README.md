@@ -12,7 +12,7 @@ A simple Python script that generates and prints a random 12-character password 
 
 - Python 3
 
-The script uses Python's built-in `random` and `string` modules.
+The script uses Python's built-in `secrets` and `string` modules.
 
 ## How to run
 
@@ -41,7 +41,7 @@ The generated password will usually differ on each run. The example above is ill
 ## How it works
 
 1. Combines `string.ascii_letters`, `string.digits`, and `string.punctuation` into one character pool.
-2. Calls `random.choice(characters)` 12 times to select individual characters. Characters may repeat.
+2. Calls `secrets.choice(characters)` 12 times to select individual characters using randomness intended for security-sensitive uses. Characters may repeat.
 3. Joins the selected characters into one string and prints it.
 
 ## Limitations
@@ -49,11 +49,17 @@ The generated password will usually differ on each run. The example above is ill
 - Password length is fixed at 12 characters.
 - A generated password is not guaranteed to contain every character type.
 - Passwords are printed to the terminal; the script does not save them to a file.
-- Although the output message says “secure,” Python's `random` module is not designed for security-sensitive password generation. This version is suitable as a learning exercise. Use the `secrets` module for passwords intended to protect real accounts.
-
 ## Possible improvements
 
-- Replace `random.choice` with `secrets.choice`.
 - Allow the user to choose the password length.
 - Add options for allowed characters.
 - Add validation if every selected character type must be included.
+## Verification
+
+Open `test_password_generator.py` in PyCharm, right-click inside the file, and choose Run.
+
+The two tests check that:
+- The generated password contains exactly 12 characters.
+- Every character belongs to the letters, digits, and punctuation pool.
+
+Both tests should pass.
