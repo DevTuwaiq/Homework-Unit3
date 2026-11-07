@@ -1,4 +1,4 @@
-# Password Generator
+# Password Generator (Python)
 
 A simple Python script that generates and prints a random 12-character password each time it runs.
 
